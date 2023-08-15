@@ -1,0 +1,31 @@
+/* 1-styles.css */
+
+/* Reset some default styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Hide the underline initially */
+h2 a {
+    text-decoration: none;
+    position: relative;
+}
+
+/* Add an underline that appears slowly on hover */
+h2 a::before {
+    content: ''; /* Create a pseudo-element to style the underline */
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px; /* Adjust this value to control the distance of the underline from the text */
+    background-color: #ad1f1f; /* Color of the underline */
+    transform: scaleX(0); /* Initially scale the underline to 0 width */
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-in-out; /* Add a transition effect */
+}
+
+/* Show the underline on hover */
+h2 a:hover::before {
+    transform: scaleX(1); /* Scale the underline to its original width */
+}
