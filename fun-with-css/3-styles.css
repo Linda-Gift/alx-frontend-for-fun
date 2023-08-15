@@ -1,0 +1,70 @@
+/* 3-styles.css */
+
+/* Reset some default styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the menu container */
+.menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style the menu open button */
+.menu-open-button {
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Style the menu lines */
+.menu-line {
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Animation for the menu icon */
+.menu-open:checked + .menu-open-button .menu-line-1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-open:checked + .menu-open-button .menu-line-2 {
+    opacity: 0;
+}
+
+.menu-open:checked + .menu-open-button .menu-line-3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Style the menu items */
+.menu-item {
+    display: none;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: rgb(143, 41, 41);
+    font-size: 24px;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translate(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Show menu items when menu is open */
+.menu-open:checked ~ .menu-item {
+    display: block;
+    opacity: 1;
+    transform: translate(0);
+}
